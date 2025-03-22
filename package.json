@@ -1,5 +1,6 @@
 {
   "name": "my-app",
+  "homepage": "https://dhairya-p.github.io/neural-shield/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,9 +9,12 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@tailwindcss/cli": "^4.0.15",
     "@tailwindcss/vite": "^4.0.15",
     "lucide-react": "^0.483.0",
     "react": "^19.0.0",
