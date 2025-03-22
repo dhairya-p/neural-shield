@@ -1,4 +1,3 @@
-import React from 'react';
 import { Shield, Menu } from 'lucide-react';
 
 function Header() {
@@ -16,8 +15,8 @@ function Header() {
         
         {/* Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-          <a href="#" className="text-gray-800 hover:text-orange-500 font-medium transition-colors">About</a>
-          <a href="#" className="text-gray-800 hover:text-orange-500 font-medium transition-colors">Documentation</a>
+          <a href="" className="text-gray-800 hover:text-orange-500 font-medium transition-colors">About</a>
+          <a href="" className="text-gray-800 hover:text-orange-500 font-medium transition-colors">Documentation</a>
           <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-md">
             Start Scan
           </button>
