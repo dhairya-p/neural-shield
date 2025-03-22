@@ -8,7 +8,7 @@ function Header() {
         <div className="flex items-center space-x-2">
           <Shield className="text-orange-500" size={28} />
           <div>
-            <h1 className="text-2xl font-bold tracking-tight">NeuralShield</h1>
+            <h1 className="text-2xl font-bold tracking-tight">SentinelForge</h1>
             <p className="text-xs text-gray-600">Security DNA Analysis Platform</p>
           </div>
         </div>

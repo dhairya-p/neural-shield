@@ -164,56 +164,56 @@ const SecurityDNAVisualizer = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col">
+    <div className="flex flex-col h-screen w-full">
       <Header />
-      <div className="flex flex-col md:flex-row gap-4 p-4">
-        {/* Code Editor Panel */}
-        <div className="w-full md:w-1/2 bg-gray-800 rounded-lg p-4 flex flex-col">
-          <div className="flex justify-between items-center mb-2">
-            <h2 className="text-xl font-bold text-white flex items-center">
-              <Code className="mr-2" size={20} /> Code Analysis
-            </h2>
-            <button 
-              onClick={analyzeCode}
-              disabled={isAnalyzing}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium disabled:opacity-50"
-            >
-              {isAnalyzing ? 'Analyzing...' : 'Analyze Code'}
-            </button>
+      <div className="flex flex-col md:flex-row gap-4 p-4 flex-1 overflow-hidden">
+          {/* Code Editor Panel */}
+          <div className="w-full md:w-1/2 bg-gray-800 rounded-lg p-4 flex flex-col">
+            <div className="flex justify-between items-center mb-2">
+              <h2 className="text-xl font-bold text-white flex items-center">
+                <Code className="mr-2" size={20} /> Code Analysis
+              </h2>
+              <button 
+                onClick={analyzeCode}
+                disabled={isAnalyzing}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium disabled:opacity-50"
+              >
+                {isAnalyzing ? 'Analyzing...' : 'Analyze Code'}
+              </button>
+            </div>
+            
+            <textarea 
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
+              className="w-full h-64 bg-gray-900 text-green-400 p-4 font-mono text-sm rounded-md"
+            />
+            
+            {/* Vulnerabilities Panel */}
+            {analysisComplete && (
+              <VulnerabilityPanel vulnerabilities={vulnerabilities} />
+            )}
           </div>
           
-          <textarea 
-            value={code}
-            onChange={(e) => setCode(e.target.value)}
-            className="w-full h-64 bg-gray-900 text-green-400 p-4 font-mono text-sm rounded-md"
-          />
-          
-          {/* Vulnerabilities Panel */}
-          {analysisComplete && (
-            <VulnerabilityPanel vulnerabilities={vulnerabilities} />
-          )}
-        </div>
-        
-        {/* Security DNA Visualization Panel */}
-        <div className="w-full md:w-1/2 bg-gray-800 rounded-lg p-4 flex flex-col">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-bold text-white flex items-center">
-              <Shield className="mr-2" size={20} /> Security DNA (Gen {generation})
-            </h2>
-            <button 
-              onClick={evolveSecurityDNA}
-              disabled={isAnalyzing || !analysisComplete}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md text-sm font-medium disabled:opacity-50"
-            >
-              Evolve DNA
-            </button>
-          </div>
-          
-          {/* DNA Visualization */}
-          <DNAVisualizer activeRules={activeRules} />
-          
-          {/* Activity Log */}
-          <ActivityLog activity={activity} />
+          {/* Security DNA Visualization Panel */}
+          <div className="w-full md:w-1/2 bg-gray-800 rounded-lg p-4 flex flex-col">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-bold text-white flex items-center">
+                <Shield className="mr-2" size={20} /> Security DNA (Gen {generation})
+              </h2>
+              <button 
+                onClick={evolveSecurityDNA}
+                disabled={isAnalyzing || !analysisComplete}
+                className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md text-sm font-medium disabled:opacity-50"
+              >
+                Evolve DNA
+              </button>
+            </div>
+            
+            {/* DNA Visualization */}
+            <DNAVisualizer activeRules={activeRules} />
+            
+            {/* Activity Log */}
+            <ActivityLog activity={activity} />
         </div>
       </div>
     </div>
